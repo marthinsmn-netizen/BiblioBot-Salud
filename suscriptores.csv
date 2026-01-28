@@ -1,0 +1,4 @@
+nombre,email,pubmed_terms,lilacs_terms
+Juan Perez,juan.kine@email.com,"Mechanical Ventilation"[Mesh],"ventilacion mecanica"
+Ana Silva,ana.docente@email.com,"Prone Position" AND "ARDS","posicion prono"
+Luis Gomez,luis.investiga@email.com,"Extubation" AND "Ultrasound","destete"

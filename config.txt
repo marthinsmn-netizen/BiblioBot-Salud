@@ -1,0 +1,10 @@
+# --- CONFIGURACIÓN DE BIBLIOBOT ---
+
+# 1. Términos para PubMed (Usa MeSH y formato inglés)
+pubmed_terms: "Mechanical Ventilation"[Mesh] AND "Diaphragm"[Mesh]
+
+# 2. Términos para LILACS (Puedes usar español o portugués)
+lilacs_terms: ventilacion mecanica AND diafragma
+
+# 3. Email donde quieres recibir los reportes
+destino: tu_correo_de_prueba@gmail.com
