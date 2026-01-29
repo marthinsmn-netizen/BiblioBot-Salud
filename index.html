@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiblioBot Salud | Vigilancia Bibliográfica para Profesionales</title>
+    <title>BiblioBot Salud | Vigilancia Bibliográfica Inteligente</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root { --primary-color: #0d6efd; --dark-blue: #0a4297; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         .hero-section { 
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-blue) 100%); 
             color: white; 
-            padding: 100px 0; 
+            padding: 120px 0; 
         }
         .feature-icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
         .bio-img { width: 180px; height: 180px; object-fit: cover; border: 5px solid #fff; }
         .card-custom { border: none; transition: transform 0.3s; }
         .card-custom:hover { transform: translateY(-5px); }
+        #registro { scroll-margin-top: 50px; }
     </style>
 </head>
 <body class="bg-light">
 
     <header class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold">BiblioBot Salud</h1>
-            <p class="lead mb-4">Recibe la última evidencia de PubMed y LILACS personalizada para tu especialidad.</p>
-            <a href="#registro" class="btn btn-light btn-lg px-5 shadow">Quiero Suscribirme</a>
+            <h1 class="display-3 fw-bold mb-3">BiblioBot Salud</h1>
+            <p class="lead mb-5 fs-3">Vigilancia bibliográfica personalizada de PubMed y LILACS para profesionales de la salud.</p>
+            <a href="#registro" class="btn btn-light btn-lg px-5 shadow-lg fw-bold text-primary">Quiero Suscribirme</a>
         </div>
     </header>
 
@@ -34,72 +36,75 @@
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom p-4 shadow-sm h-100">
                         <div class="feature-icon">🔍</div>
-                        <h3>Filtro Experto</h3>
-                        <p class="text-muted">Búsquedas precisas mediante términos MeSH y DeCS para evitar el ruido informativo.</p>
+                        <h3 class="fw-bold">Filtro Experto</h3>
+                        <p class="text-muted">Búsquedas precisas mediante términos MeSH y DeCS para recibir solo evidencia de calidad.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom p-4 shadow-sm h-100">
                         <div class="feature-icon">⚡</div>
-                        <h3>Ahorro de Tiempo</h3>
-                        <p class="text-muted">No busques más manualmente. El bot rastrea las bases de datos por ti cada semana.</p>
+                        <h3 class="fw-bold">Ahorro de Tiempo</h3>
+                        <p class="text-muted">El bot rastrea las bases de datos por ti. Recibe el resumen semanal sin mover un dedo.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom p-4 shadow-sm h-100">
                         <div class="feature-icon">📬</div>
-                        <h3>Reporte Semanal</h3>
-                        <p class="text-muted">Cada lunes, un email profesional con links directos a las publicaciones más relevantes.</p>
+                        <h3 class="fw-bold">Reporte Lunes</h3>
+                        <p class="text-muted">Cada lunes en tu email: links directos a las publicaciones más relevantes de tu área.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="registro" class="py-5 bg-white shadow-sm">
+    <section id="registro" class="py-5 bg-white shadow-sm border-top border-bottom">
         <div class="container text-center" style="max-width: 700px;">
-            <h2 class="fw-bold mb-3">Registra tus Keywords</h2>
-            <p class="mb-4">Indícanos qué temas te interesan investigar y nuestro algoritmo hará el resto.</p>
+            <h2 class="fw-bold mb-3 text-dark">Registra tus Keywords</h2>
+            <p class="mb-4 fs-5 text-secondary">Configura tus temas de interés y nuestro algoritmo te enviará las novedades cada semana.</p>
             
-            <a href="https://docs.google.com/forms/d/e/TU_ID_AQUI/viewform" target="_blank" class="btn btn-primary btn-lg w-100 shadow-sm">
-                Ir al Formulario de Registro
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScLo3kIwM5uvKIrWUUnncHOKyO5zS8ZlIZH1gccaTLDAWVngw/viewform" target="_blank" class="btn btn-primary btn-lg w-100 shadow-sm py-3 fw-bold fs-4">
+                📝 Ir al Formulario de Registro
             </a>
             
-            <p class="text-muted mt-3 small"><em>Servicio gratuito para la comunidad científica y profesional.</em></p>
+            <p class="text-muted mt-4 small"><em>Servicio diseñado para la actualización continua de profesionales e investigadores.</em></p>
         </div>
     </section>
 
-    <section class="py-5 border-top bg-light">
+    <section class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <div class="position-relative d-inline-block">
-                        <img src="https://via.placeholder.com/200" class="rounded-circle bio-img shadow" alt="Lic. J.M. Nuñez Silveira">
+                        <img src="https://via.placeholder.com/200" class="rounded-circle bio-img shadow-lg" alt="Lic. J.M. Nuñez Silveira">
                         <div class="position-absolute bottom-0 end-0 bg-primary text-white p-2 rounded-circle shadow">
                             🔬
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <h2 class="fw-bold text-dark">El criterio detrás del algoritmo</h2>
-                    <p class="text-primary fw-bold mb-1">Lic. J.M. Nuñez Silveira</p>
-                    <p class="text-secondary small mb-3">Kinesiólogo Especialista en Cuidados Intensivos | Docente e Investigador</p>
-                    <p class="text-muted">
-                        Entiendo que en la práctica clínica el tiempo es el recurso más escaso. <strong>BiblioBot Salud</strong> nació de la necesidad de democratizar el acceso a la evidencia científica de vanguardia, automatizando la vigilancia bibliográfica para que puedas enfocarte en lo que realmente importa: la toma de decisiones y el cuidado del paciente.
+                    <h2 class="fw-bold text-dark mb-3">El criterio detrás del algoritmo</h2>
+                    <p class="text-primary fw-bold mb-1 fs-5">Lic. J.M. Nuñez Silveira</p>
+                    <p class="text-secondary mb-3">Kinesiólogo Especialista en Cuidados Intensivos | Docente e Investigador</p>
+                    <p class="text-muted fs-6">
+                        Entiendo que en la práctica clínica el tiempo es el recurso más escaso. <strong>BiblioBot Salud</strong> nació de la necesidad de democratizar el acceso a la evidencia científica, automatizando la vigilancia bibliográfica para que puedas enfocarte en lo que realmente importa: <strong>la toma de decisiones y el cuidado del paciente.</strong>
                     </p>
                     <div class="mt-4">
-                        <a href="https://www.instagram.com/JmNunezSilveira" target="_blank" class="btn btn-outline-dark btn-sm me-2">📸 Instagram</a>
-                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm">🔗 Perfil Profesional</a>
+                        <a href="https://www.instagram.com/JmNunezSilveira" target="_blank" class="btn btn-outline-dark btn-sm me-2 px-3">📸 Instagram</a>
+                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm px-3">🔗 LinkedIn</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-4 bg-dark text-white">
+    <footer class="text-center py-5 bg-dark text-white">
         <div class="container">
-            <p class="mb-0 small">© 2026 BiblioBot Salud - @JmNunezSilveira</p>
-            <p class="small text-secondary">Desarrollado para la actualización continua en salud.</p>
+            <p class="mb-1 fw-bold">BiblioBot Salud</p>
+            <p class="mb-3 small text-secondary text-uppercase tracking-wider">Desarrollado por @JmNunezSilveira</p>
+            <div class="border-top border-secondary pt-3 mt-3" style="opacity: 0.3;">
+                <p class="small mb-0">© 2026 - Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
