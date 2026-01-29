@@ -1,9 +1,8 @@
 import csv
 import buscador
 import buscador_lilacs
-import notificador
+import notificador # Asegúrate de que no tenga errores de escritura
 import time
-
 def ejecutar_bot_masivo():
     print("--- 🚀 Iniciando Envío a Suscriptores ---")
     

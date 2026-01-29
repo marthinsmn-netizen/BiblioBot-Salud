@@ -1,3 +1,9 @@
+import os  # <--- ESTA ES LA QUE FALTA
+import smtplib
+from email.message import EmailMessage
+from dotenv import load_dotenv
+
+load_dotenv()
 def enviar_email(destinatario, links):
     user = os.getenv("EMAIL_USER")
     password = os.getenv("EMAIL_PASS")
