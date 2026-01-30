@@ -8,16 +8,37 @@
     <style>
         :root { --primary-color: #0d6efd; --dark-blue: #0a4297; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
         .hero-section { 
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-blue) 100%); 
             color: white; 
             padding: 120px 0; 
         }
+        
         .feature-icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
-        .bio-img { width: 180px; height: 180px; object-fit: cover; border: 5px solid #fff; }
+        
+        /* Estilo de la foto de perfil */
+        .bio-img { 
+            width: 220px; 
+            height: 220px; 
+            object-fit: cover; 
+            border: 8px solid #fff; 
+        }
+        
         .card-custom { border: none; transition: transform 0.3s; }
         .card-custom:hover { transform: translateY(-5px); }
-        #registro { scroll-margin-top: 50px; }
+        
+        /* Ajuste para que el scroll no tape el título */
+        #registro { scroll-margin-top: 80px; }
+        
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -67,7 +88,7 @@
                 📝 Ir al Formulario de Registro
             </a>
             
-            <p class="text-muted mt-4 small"><em>Servicio diseñado para la actualización continua de profesionales e investigadores.</em></p>
+            <p class="text-muted mt-4 small"><em>Servicio gratuito diseñado para la actualización continua de profesionales e investigadores.</em></p>
         </div>
     </section>
 
@@ -76,8 +97,8 @@
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <div class="position-relative d-inline-block">
-                        <img src="https://via.placeholder.com/200" class="rounded-circle bio-img shadow-lg" alt="Lic. J.M. Nuñez Silveira">
-                        <div class="position-absolute bottom-0 end-0 bg-primary text-white p-2 rounded-circle shadow">
+                        <img src="foto-perfil.jpg" class="rounded-circle bio-img shadow-lg" alt="Lic. J.M. Nuñez Silveira">
+                        <div class="position-absolute bottom-0 end-0 bg-primary text-white badge-icon rounded-circle shadow">
                             🔬
                         </div>
                     </div>
@@ -85,13 +106,13 @@
                 <div class="col-md-8">
                     <h2 class="fw-bold text-dark mb-3">El criterio detrás del algoritmo</h2>
                     <p class="text-primary fw-bold mb-1 fs-5">Lic. J.M. Nuñez Silveira</p>
-                    <p class="text-secondary mb-3">Kinesiólogo Especialista en Cuidados Intensivos | Docente e Investigador</p>
+                    <p class="text-secondary mb-3 small">Kinesiólogo Especialista en Cuidados Intensivos | Docente e Investigador</p>
                     <p class="text-muted fs-6">
                         Entiendo que en la práctica clínica el tiempo es el recurso más escaso. <strong>BiblioBot Salud</strong> nació de la necesidad de democratizar el acceso a la evidencia científica, automatizando la vigilancia bibliográfica para que puedas enfocarte en lo que realmente importa: <strong>la toma de decisiones y el cuidado del paciente.</strong>
                     </p>
                     <div class="mt-4">
                         <a href="https://www.instagram.com/JmNunezSilveira" target="_blank" class="btn btn-outline-dark btn-sm me-2 px-3">📸 Instagram</a>
-                        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm px-3">🔗 LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/juan-mart%C3%ADn-nu%C3%B1ez-silveira-07452058/" target="_blank" class="btn btn-outline-primary btn-sm px-3">🔗 LinkedIn</a>
                     </div>
                 </div>
             </div>
