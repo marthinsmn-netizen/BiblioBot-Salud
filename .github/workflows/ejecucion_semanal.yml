@@ -23,7 +23,8 @@ jobs:
 
       - name: Ejecutar BiblioBot
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # ESTO ES LO QUE FALTA: Conectar el Secret con el código
+          GCP_SERVICE_ACCOUNT_FILE: ${{ secrets.GCP_SERVICE_ACCOUNT_FILE }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }} # Agregamos la de Groq por las dudas
         run: python main.py
