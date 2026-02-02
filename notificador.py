@@ -1,9 +1,10 @@
-import smtplib
-from email.message import EmailMessage
+import os
+# ... otros imports ...
 
 def enviar_email(destinatario, nombre_usuario, estrategia, analisis_ia, links_pubmed, links_lilacs):
-    remitente = "marthins.mn@gmail.com" # Tu Gmail
-    password = "irysrlvfuifgxwqy" # Tu App Password
+    remitente = "marthins.mn@gmail.com" # Este podés dejarlo
+    password = os.getenv("EMAIL_PASS") # Usamos variable de entorno
+    # ... resto del código ...
 
     msg = EmailMessage()
     msg['Subject'] = f"📊 Reporte de Vigilancia: {estrategia.strip('()')}"

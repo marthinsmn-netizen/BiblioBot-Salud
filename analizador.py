@@ -1,9 +1,15 @@
+import os
 import requests
 import json
 
 def categorizar_estudios(links):
-    # --- PEGA ACÁ TU NUEVA CLAVE DE GROQ ---
-    api_key = "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"
+    # Ya NO ponemos la clave real acá. La pedimos al sistema.
+    api_key = os.getenv("GROQ_API_KEY")
+    
+    if not api_key:
+        return "⚠️ Error: GROQ_API_KEY no configurada en el entorno."
+    
+    # ... resto del código igual ...
     
     url = "https://api.groq.com/openai/v1/chat/completions"
     
