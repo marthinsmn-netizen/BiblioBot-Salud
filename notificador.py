@@ -1,57 +1,61 @@
-import os  # <--- ESTA ES LA QUE FALTA
 import smtplib
 from email.message import EmailMessage
-from dotenv import load_dotenv
 
-load_dotenv()
-def enviar_email(destinatario, links):
-    user = os.getenv("EMAIL_USER")
-    password = os.getenv("EMAIL_PASS")
-    
+def enviar_email(destinatario, nombre_usuario, estrategia, analisis_ia, links_pubmed, links_lilacs):
+    remitente = "marthins.mn@gmail.com" # Tu Gmail
+    password = "irysrlvfuifgxwqy" # Tu App Password
+
     msg = EmailMessage()
-    msg['Subject'] = "📚 Alerta Bibliográfica | BiblioBot Salud"
-    msg['From'] = f"BiblioBot Salud <{user}>"
+    msg['Subject'] = f"📊 Reporte de Vigilancia: {estrategia.strip('()')}"
+    msg['From'] = remitente
     msg['To'] = destinatario
 
-    # Construimos el cuerpo del mensaje en HTML
-    items_html = ""
-    for link in links:
-        if "---" in link or "NUEVOS" in link:
-            items_html += f"<li style='list-style:none; margin-top:15px; font-weight:bold; color:#0d6efd;'>{link}</li>"
-        else:
-            items_html += f"<li style='margin-bottom:10px;'><a href='{link}' style='color:#0d6efd; text-decoration:none;'>🔗 Ver publicación en el sitio oficial</a></li>"
-
+    # --- DISEÑO HTML DEL MAIL ---
     html_content = f"""
     <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-            <div style="max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 10px; overflow: hidden;">
-                <div style="background-color: #0d6efd; color: white; padding: 20px; text-align: center;">
-                    <h1 style="margin:0;">BiblioBot Salud</h1>
-                    <p style="margin:0;">Tu vigilancia científica semanal</p>
-                </div>
-                <div style="padding: 20px;">
-                    <p>Hola,</p>
-                    <p>He analizado las últimas publicaciones en <strong>PubMed</strong> y <strong>LILACS</strong> según tus intereses. Aquí tienes los hallazgos de esta semana:</p>
-                    <ul style="padding-left: 0;">
-                        {items_html}
-                    </ul>
-                    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-                    <p style="font-size: 12px; color: #777; text-align: center;">
-                        Este es un servicio automatizado creado por el Lic. J.M. Nuñez Silveira.<br>
-                        Para modificar tus keywords, responde a este correo.
-                    </p>
-                </div>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
+            <h2 style="color: #2c3e50;">Hola, {nombre_usuario} 👋</h2>
+            <p>Este es tu reporte semanal de actualización científica generado con <b>IA</b>.</p>
+            
+            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 5px solid #3498db;">
+                <strong>🔍 Estrategia de búsqueda:</strong><br>
+                <code style="color: #e67e22;">{estrategia}</code>
             </div>
-        </body>
+
+            <h3 style="color: #2980b9; margin-top: 25px;">🤖 Análisis y Priorización (IA)</h3>
+            <div style="white-space: pre-wrap; background-color: #fff4e5; padding: 15px; border-radius: 5px; border: 1px solid #ffe0b2;">
+                {analisis_ia}
+            </div>
+
+            <h3 style="color: #27ae60; margin-top: 25px;">📚 Evidencia Encontrada</h3>
+            <p><b>PubMed:</b></p>
+            <ul>
+                {"".join([f'<li><a href="{l}">{l}</a></li>' for l in links_pubmed]) if links_pubmed else "<li>No se encontraron nuevos resultados.</li>"}
+            </ul>
+
+            <p><b>LILACS:</b></p>
+            <ul>
+                {"".join([f'<li><a href="{l}">{l}</a></li>' for l in links_lilacs]) if links_lilacs else "<li>No se encontraron nuevos resultados.</li>"}
+            </ul>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+            <p style="font-size: 0.9em; color: #7f8c8d; text-align: center;">
+                <b>BiblioBot Salud</b> - Innovación en Kinesiología Intensiva<br>
+                Desarrollado por <strong>@JmNunezSilveira</strong>
+            </p>
+        </div>
+    </body>
     </html>
     """
+    
     msg.add_alternative(html_content, subtype='html')
 
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(user, password)
+            smtp.login(remitente, password)
             smtp.send_message(msg)
-        return True
+            return True
     except Exception as e:
-        print(f"Error de envío: {e}")
+        print(f"❌ Error de envío: {e}")
         return False

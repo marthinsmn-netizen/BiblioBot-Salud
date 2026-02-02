@@ -8,16 +8,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Descargar código
+      - name: Checkout del código
         uses: actions/checkout@v3
+
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.9'
+
       - name: Instalar dependencias
-        run: pip install -r requirements.txt
-      - name: Ejecutar Bot
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ejecutar BiblioBot
         env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }} # Agregamos la de Groq por las dudas
         run: python main.py

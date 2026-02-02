@@ -1,23 +1,26 @@
 from Bio import Entrez
-import datetime
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
-Entrez.email = os.getenv("EMAIL_USER") 
-# Agregamos esta línea para evitar el warning si el .env falla por un segundo
-if not Entrez.email:
-    Entrez.email = "tu_correo@ejemplo.com"
+def buscar_articulos(terminos, filtros_extra=""):
+    Entrez.email = "tu_email@ejemplo.com"
+    
+    # Verificación de seguridad: si no hay términos, no buscamos nada
+    if not terminos or terminos.strip() == "":
+        print("⚠️ No hay términos de búsqueda para este suscriptor.")
+        return [], "Sin estrategia"
 
-def buscar_articulos(terminos, dias_atras=7):
+    estrategia = f"({terminos})"
+    if filtros_extra:
+        estrategia += f" AND ({filtros_extra})"
+    
     try:
-        fecha_inicio = (datetime.datetime.now() - datetime.timedelta(days=dias_atras)).strftime("%Y/%m/%d")
-        query = f"({terminos}) AND ({fecha_inicio}[PDAT] : 3000[PDAT])"
-        handle = Entrez.esearch(db='pubmed', term=query, retmax=5)
+        handle = Entrez.esearch(db="pubmed", term=estrategia, retmax=5, sort="relevance")
         record = Entrez.read(handle)
         handle.close()
+        
         id_list = record.get("IdList", [])
-        return [f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/" for pmid in id_list]
+        links = [f"https://pubmed.ncbi.nlm.nih.gov/{id}/" for id in id_list]
+        
+        return links, estrategia
     except Exception as e:
-        print(f"Error en PubMed: {e}")
-        return []
+        print(f"❌ Error en la API de PubMed: {e}")
+        return [], estrategia
